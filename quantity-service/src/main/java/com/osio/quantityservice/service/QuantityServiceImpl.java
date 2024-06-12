@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.UUID;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -149,12 +149,12 @@ public class QuantityServiceImpl implements QuantityService {
         redisService.deleteQuantity(quantityUpdateDTO.getQuantityId());
     }
 
-//    @Transactional
-//    // 재고 DB 저장 - schedule
-//    public void updateQuantity() {
-//        List<Quantity> quantityList = quantityRepository.findAll();
-//        for (Quantity quantity : quantityList) {
-//            quantity.updateQuantity(redisService.getQuantity(quantity.getQuantityId()));
-//        }
-//    }
+    @Transactional
+    // 재고 DB 저장 - schedule
+    public void updateDatabaseQuantity() {
+        List<Quantity> quantityList = quantityRepository.findAll();
+        for (Quantity quantity : quantityList) {
+            quantity.updateQuantity(redisService.getQuantity(quantity.getQuantityId()));
+        }
+    }
 }
