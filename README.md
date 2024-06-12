@@ -28,8 +28,6 @@
 
 <br>
 
-![marketERD](https://github.com/already-cow/market_msa/assets/97944505/ec4b082f-988f-41d8-985a-9e8ebe391773)
-
 ## ❓ 기술적 의사결정
 - 세션 쿠키 vs JWT
 - nGrinder vs Jmeter
